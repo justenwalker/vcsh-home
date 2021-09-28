@@ -1,0 +1,112 @@
+# ANSI Colors https://jonasjacek.github.io/colors/
+
+format = """
+[╭─────╼](bold fg:#ffffff)[ ](fg:#ffaf00)[](fg:#303030)[](fg:#5f00d7)$battery$hostname[ ](fg:#5f00d7 bg:#0087ff)$directory[](fg:#0087ff bg:#303030)[ $git_branch$git_commit$git_state$git_status ](bg:#303030)[](fg:#303030)
+[│](bold fg:#ffffff)$kubernetes$golang$rust$python$terraform
+[╰─╼](bold fg:#ffffff) $character"""
+
+[character]
+format = "$symbol"
+success_symbol = "[\\$](bold fg:#00d700) "
+error_symbol   = "[\\$](bold #af0000) "
+
+[battery]
+format = "[$symbol$percentage ]($style)"
+style = 'bg:#00d700'
+full_symbol = ""
+charging_symbol = ""
+discharging_symbol = ""
+unknown_symbol = ""
+empty_symbol = ""
+
+[[battery.display]]
+threshold = 15 
+style = "bold fg:#ff0000 bg:#5f00d7"
+
+[[battery.display]]
+threshold = 30
+style = "bold fg:#ffaf00 bg:#5f00d7"
+
+[[battery.display]]
+threshold = 50
+style = "bold fg:#ffd700 bg:#5f00d7"
+
+[[battery.display]]
+threshold = 75
+style = "bold fg:#00ff87 bg:#5f00d7"
+
+
+[hostname]
+ssh_only = false
+format = '[ $hostname](bold fg:#000000 bg:#5f00d7)'
+style  = "fg:black bg:fg:#5f00d7"
+disabled = false
+
+[directory]
+format = '([](fg:#af0000 bg:#0087ff)[$read_only](fg:#ffffff bg:#af0000)[ ](fg:#af0000 bg:#0087ff))[ $path](bg:#0087ff fg:white bold)'
+read_only = ''
+read_only_style = '#af0000'
+truncation_length = 8
+truncation_symbol = "…/"
+
+[git_branch]
+format = '[ ](bg:#303030 fg:#f34f29)[$symbol$branch](bg:#303030 fg:#bcbcbc bold)'
+symbol = ""
+style  = "purple bold"
+only_attached = true
+
+[git_commit]
+format = '([  $hash]($style)[$tag](fg:253 bg:#303030))'
+style  = 'bold fg:253 bg:#303030'
+only_detached = true
+tag_disabled  = false
+tag_symbol = "笠"
+
+[git_state]
+format     = '[ ](bg:#303030 fg:#bcbcbc)$state([ $progress_current/$progress_total]($style))[ ](bg:#303030 fg:#bcbcbc)'
+cherry_pick = "[ PICKING](bold fg:#f34f29 bg:#bcbcbc)"
+merge       = '[ MERGING](bold fg:#be46e2 bg:#bcbcbc)'
+rebase     = '[ REBASING](bold fg:#5651bc bg:#bcbcbc)'
+revert    = '[ REVERTING](bold fg:#8700af bg:#bcbcbc)'
+bisect    = '[ BISECTING](bold fg:#0cb571 bg:#bcbcbc)'
+style     = 'bold fg:#303030 bg:#bcbcbc'
+
+[git_status]
+format     = '([ ](bg:#303030 fg:#bcbcbc)[$all_status$ahead_behind]($style)[ ](bg:#303030 fg:#bcbcbc))'
+conflicted = "[$count ](bold fg:#870000 bg:#bcbcbc)"
+ahead      = "[$count ](bold fg:#005f00 bg:#bcbcbc)"
+behind     = "[$count ](bold fg:#ff0000 bg:#bcbcbc)"
+diverged   = "[](fg:#ff0000 bg:#bcbcbc)"
+untracked  = "[$count ](bold fg:#303030 bg:#bcbcbc)"
+stashed    = "[$count ](bold fg:#585858 bg:#bcbcbc)"
+modified   = "[$count ](bold fg:#ff5f00 bg:#bcbcbc)"
+staged     = "[$count ](bold fg:#0087af bg:#bcbcbc)"
+renamed    = "[$count ](bold fg:#5f0087 bg:#bcbcbc)"
+deleted    = "[$countﮁ ](bold fg:#ff0000 bg:#bcbcbc)"
+style =	"bold bg:white fg:black"
+
+[kubernetes]
+symbol = '[](fg:#326ce5)[ﴱ ](fg:white bg:#326ce5)[](fg:#326ce5) '
+format = '$symbol[$context(\($namespace\))]($style) '
+style = "fg:#326ce5"
+disabled = false
+
+[golang]
+format = "$symbol[$version]($style) "
+symbol = '[](fg:#ffffff)[ﳑ ](fg:#326ce5 bg:#ffffff)[](fg:#ffffff) '
+style = "fg:#00add8 bold"
+
+[rust]
+format = "$symbol[$version]($style) "
+symbol = '[](fg:#c6c6c6)[ ](fg:#000000 bg:#c6c6c6)[](fg:#c6c6c6) '
+style = "fg:#b7410e bold"
+
+[python]
+format = '$symbol[$version( \($virtualenv\))]($style) '
+symbol = '[](fg:#ffde57)[ ](fg:#4584b6 bg:#ffde57)[](fg:#ffde57) '
+style  = 'fg:#ffde57 bold'
+
+[terraform]
+symbol = '[](fg:#623CE4)[ ](fg:white bg:#623CE4)[](fg:#623CE4) '
+format = '$symbol[$workspace]($style)'
+style  = 'fg:#623CE4 bold'

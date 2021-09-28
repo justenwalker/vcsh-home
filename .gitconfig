@@ -1,0 +1,7 @@
+[user]
+	email = justen.walker+github@gmail.com
+	name = Justen Walker
+	signingkey = 2E9CA6C0
+[core]
+	editor = vim
+	excludesfile = /home/justen/.gitignore_global
