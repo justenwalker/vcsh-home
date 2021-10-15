@@ -12,7 +12,7 @@ error_symbol   = "[\\$](bold #af0000) "
 
 [battery]
 format = "[$symbol$percentage ]($style)"
-style = 'bg:#00d700'
+#style = 'bg:#00d700'
 full_symbol = ""
 charging_symbol = ""
 discharging_symbol = ""
