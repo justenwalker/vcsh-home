@@ -1,7 +1,39 @@
 [user]
-	email = justen.walker+github@gmail.com
 	name = Justen Walker
-	signingkey = 2E9CA6C0
+	email = justen.walker+github@gmail.com
+	signingkey = 0x56FA820B
 [core]
 	editor = vim
-	excludesfile = /home/justen/.gitignore_global
+	excludesfile = /Users/justen/.gitignore_global
+[init]
+	defaultBranch = main
+[commit]
+	gpgsign = true
+[gpg]
+	program = /opt/homebrew/bin/gpg
+[tag]
+	gpgSign = true
+[pull]
+	rebase = true
+[alias]
+	append = town append
+	hack = town hack
+	kill = town kill
+	new-pull-request = town new-pull-request
+	prepend = town prepend
+	prune-branches = town prune-branches
+	rename-branch = town rename-branch
+	repo = town repo
+	ship = town ship
+	sync = town sync
+[merge]
+	tool = p4mergetool
+[mergetool "p4mergetool"]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $PWD/$BASE $PWD/$REMOTE $PWD/$LOCAL $PWD/$MERGED
+	trustExitCode = false
+[mergetool]
+	keepBackup = false
+[diff]
+	tool = p4mergetool
+[difftool "p4mergetool"]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $LOCAL $REMOTE

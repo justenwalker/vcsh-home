@@ -1,15 +1,8 @@
-if [ -r $HOME/.zinit/bin/zinit.zsh ]; then
-    source $HOME/.zinit/bin/zinit.zsh
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+if [ -d ${ZINIT_HOME} ]; then
+    source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
     autoload -Uz _zinit
     (( ${+_comps} )) && _comps[zinit]=_zinit
-
-    # Load a few important annexes, without Turbo
-    # (this is currently required for annexes)
-    zinit light-mode for \
-        zinit-zsh/z-a-rust \
-        zinit-zsh/z-a-as-monitor \
-        zinit-zsh/z-a-patch-dl \
-        zinit-zsh/z-a-bin-gem-node
 
     ### End of Zinit's installer chunk
     if [ -r $ZDOTDIR/zinit ]; then

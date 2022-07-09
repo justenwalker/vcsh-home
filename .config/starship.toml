@@ -1,8 +1,8 @@
 # ANSI Colors https://jonasjacek.github.io/colors/
 
 format = """
-[╭─────╼](bold fg:#ffffff)[ ](fg:#ffaf00)[](fg:#303030)[](fg:#5f00d7)$battery$hostname[ ](fg:#5f00d7 bg:#0087ff)$directory[](fg:#0087ff bg:#303030)[ $git_branch$git_commit$git_state$git_status ](bg:#303030)[](fg:#303030)
-[│](bold fg:#ffffff)$kubernetes$golang$rust$python$terraform
+[╭─────╼](bold fg:#ffffff)[ ](fg:#ffaf00)[](fg:#303030)[](fg:#bfcfff)$battery$hostname[ ](fg:#bfcfff bg:#002db3)$directory[](fg:#002db3 bg:#303030)[ $git_branch$git_commit$git_state$git_status ](bg:#303030)[](fg:#303030)
+[│](bold fg:#ffffff)$aws$kubernetes$golang$rust$python$terraform
 [╰─╼](bold fg:#ffffff) $character"""
 
 [character]
@@ -21,36 +21,36 @@ empty_symbol = ""
 
 [[battery.display]]
 threshold = 15 
-style = "bold fg:#ff0000 bg:#5f00d7"
+style = "bold fg:#ff0000 bg:#bfcfff"
 
 [[battery.display]]
 threshold = 30
-style = "bold fg:#ffaf00 bg:#5f00d7"
+style = "bold fg:#ffaf00 bg:#bfcfff"
 
 [[battery.display]]
 threshold = 50
-style = "bold fg:#ffd700 bg:#5f00d7"
+style = "bold fg:#ffd700 bg:#bfcfff"
 
 [[battery.display]]
 threshold = 75
-style = "bold fg:#00ff87 bg:#5f00d7"
+style = "bold fg:#00ff87 bg:#bfcfff"
 
 
 [hostname]
 ssh_only = false
-format = '[ $hostname](bold fg:#000000 bg:#5f00d7)'
-style  = "fg:black bg:fg:#5f00d7"
+format = '[ $hostname](bold fg:#000000 bg:#bfcfff)'
+style  = "fg:black bg:fg:#bfcfff"
 disabled = false
 
 [directory]
-format = '([](fg:#af0000 bg:#0087ff)[$read_only](fg:#ffffff bg:#af0000)[ ](fg:#af0000 bg:#0087ff))[ $path](bg:#0087ff fg:white bold)'
+format = '([](fg:#af0000 bg:#002db3)[$read_only](fg:#ffffff bg:#af0000)[ ](fg:#af0000 bg:#002db3))[ $path](bg:#002db3 fg:white bold)'
 read_only = ''
 read_only_style = '#af0000'
 truncation_length = 8
 truncation_symbol = "…/"
 
 [git_branch]
-format = '[ ](bg:#303030 fg:#f34f29)[$symbol$branch](bg:#303030 fg:#bcbcbc bold)'
+format = '[ ](bg:#303030 fg:#f34f29)[$symbol $branch](bg:#303030 fg:#bcbcbc bold)'
 symbol = ""
 style  = "purple bold"
 only_attached = true
@@ -110,3 +110,8 @@ style  = 'fg:#ffde57 bold'
 symbol = '[](fg:#623CE4)[ ](fg:white bg:#623CE4)[](fg:#623CE4) '
 format = '$symbol[$workspace]($style)'
 style  = 'fg:#623CE4 bold'
+
+[aws]
+symbol = '[](fg:#FF9900)[  ](fg:white bg:#FF9900)[](fg:#FF9900) '
+format = '$symbol[$profile @ $region ]($style)'
+style  = 'fg:#FF9900 bold'
